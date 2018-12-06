@@ -22,16 +22,38 @@ module.exports = class extends Generator {
   }
 
   writing () {
-    var paths = ['package.json', '.gitignore', '.env', 'index.js', 'README.md']
-    paths.forEach(filepath => {
-      this.fs.copyTpl(
-        this.templatePath(filepath),
-        this.destinationPath(`${this.appRoot}/${filepath}`),
-        {
-          name: this.appName
-        }
-      )
-    })
+    const copyer = (paths, sourcePath, destPath) => {
+      return paths.forEach(filepath => {
+        this.fs.copyTpl(
+          this.templatePath(
+            `${sourcePath ? `./${sourcePath}/` : './'}${filepath}`
+          ),
+          this.destinationPath(
+            destPath
+              ? `${this.appRoot}/${destPath}/${filepath}`
+              : `${this.appRoot}/${filepath}`
+          ),
+          {
+            name: this.appName
+          }
+        )
+      })
+    }
+
+    copyer(
+      ['package.json', '.gitignore', '.env', 'index.js', 'README.md'],
+      null,
+      null
+    )
+
+    copyer(['package.json'], 'client', 'client')
+    copyer(['clientDevServer.js'], 'client/devServer', 'client/devServer')
+    copyer(
+      ['index.js', 'index.html', 'style.css'],
+      'client/build',
+      'client/build'
+    )
+    copyer(['index.js', 'index.html', 'style.css'], 'client/src', 'client/src')
 
     this.destinationRoot(`${this.appRoot}`)
 
