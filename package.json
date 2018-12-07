@@ -7,7 +7,7 @@
     "url": "https://github.com/jamesjsewell/generator-react_fullstack_gen.git"
   },
   "files": [
-    "generators"
+    "generators/app"
   ],
   "main": "index.js",
   "scripts": {
