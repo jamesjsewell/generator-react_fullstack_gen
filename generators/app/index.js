@@ -14,8 +14,8 @@ module.exports = class extends Generator {
       message: 'Your project name',
       default: this.appname
     }).then(answers => {
-      // this.appName = answers.name
-      // this.appRoot = `${this.destinationRoot()}/${this.appName}`
+      this.appName = answers.name
+      this.appRoot = `${this.destinationRoot()}/${this.appName}`
       this.destinationRoot(answers.name)
 
       done()
@@ -41,11 +41,17 @@ module.exports = class extends Generator {
       })
     }
 
-    copyer(
-      ['package.json', '.gitignore', '.env', 'index.js', 'README.md'],
-      null,
-      null
+    this.fs.copyTpl(
+      this.templatePath('./_gitignore'),
+      this.destinationPath(`${this.appRoot}/.gitignore`)
     )
+
+    this.fs.copyTpl(
+      this.templatePath('./_env'),
+      this.destinationPath(`${this.appRoot}/.env`)
+    )
+
+    copyer(['package.json', 'index.js', 'README.md'], null, null)
 
     copyer(['ABOUT.md'], 'public', 'public')
 
