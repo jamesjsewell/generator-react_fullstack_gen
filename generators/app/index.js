@@ -46,14 +46,7 @@ module.exports = class extends Generator {
       null
     )
 
-    copyer(['package.json'], 'client', 'client')
-    copyer(['clientDevServer.js'], 'client/devServer', 'client/devServer')
-    copyer(
-      ['index.js', 'index.html', 'style.css'],
-      'client/build',
-      'client/build'
-    )
-    copyer(['index.js', 'index.html', 'style.css'], 'client/src', 'client/src')
+    copyer(['ABOUT.md'], 'public', 'public')
 
     this.destinationRoot(`${this.appRoot}`)
 

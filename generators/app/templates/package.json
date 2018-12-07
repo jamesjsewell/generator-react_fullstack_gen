@@ -13,14 +13,15 @@
   "devDependencies": {
     "nodemon": "1.18.7",
     "concurrently": "4.1.0",
-    "dotenv": "6.2.0"
+    "dotenv": "6.2.0",
+    "create-react-app": "2.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "server": "NODE_ENV=development nodemon --ignore client ./index.js",
     "client": "cd client && npm run start",
-    "postinstall": "cd ./client && npm install"
+    "postinstall": "create-react-app client"
   },
   "author": "",
   "license": "ISC"
