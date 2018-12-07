@@ -14,8 +14,9 @@ module.exports = class extends Generator {
       message: 'Your project name',
       default: this.appname
     }).then(answers => {
-      this.appName = answers.name
-      this.appRoot = `${this.destinationRoot()}/${this.appName}`
+      // this.appName = answers.name
+      // this.appRoot = `${this.destinationRoot()}/${this.appName}`
+      this.destinationRoot(answers.name)
 
       done()
     })
@@ -47,8 +48,6 @@ module.exports = class extends Generator {
     )
 
     copyer(['ABOUT.md'], 'public', 'public')
-
-    this.destinationRoot(`${this.appRoot}`)
 
     this.installDependencies({
       npm: true,
