@@ -53,8 +53,6 @@ module.exports = class extends Generator {
 
     copyer(['package.json', 'index.js', 'README.md'], null, null)
 
-    copyer(['ABOUT.md'], 'public', 'public')
-
     this.installDependencies({
       npm: true,
       bower: false,
