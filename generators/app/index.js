@@ -82,6 +82,7 @@ module.exports = class extends Generator {
 
     copyer(['index.js', 'README.md'], null, null)
     this.installCRA()
+
     // this.spawnCommand('create-react-app', [
     //   'client',
     //   '--scripts-version',
@@ -112,6 +113,7 @@ module.exports = class extends Generator {
   install () {
     console.log('installing server dependencies')
     this.npmInstall()
+    this.installDependencies({ npm: true, bower: false, yarn: false })
   }
 
   end () {
