@@ -89,25 +89,25 @@ module.exports = class extends Generator {
     // ])
   }
 
-  // installCRA () {
-  //   var isDone = this.async()
+  installCRA () {
+    var isDone = this.async()
 
-  //   var CRA = () => {
-  //     this.spawnCommand('create-react-app', [
-  //       'client',
-  //       '--scripts-version',
-  //       'digitalcrafts-react-scripts'
-  //     ]).on('exit', err => {
-  //       if (err) {
-  //         this.log.error('task failed. Error: ' + err)
-  //       } else {
-  //         isDone()
-  //       }
-  //     })
-  //   }
+    var CRA = () => {
+      this.spawnCommand('create-react-app', [
+        'client',
+        '--scripts-version',
+        'digitalcrafts-react-scripts'
+      ]).on('exit', err => {
+        if (err) {
+          this.log.error('task failed. Error: ' + err)
+        } else {
+          isDone()
+        }
+      })
+    }
 
-  //   CRA()
-  // }
+    CRA()
+  }
 
   install () {
     console.log('installing server dependencies')
