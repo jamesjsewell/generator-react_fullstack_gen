@@ -81,21 +81,32 @@ module.exports = class extends Generator {
     )
 
     copyer(['index.js', 'README.md'], null, null)
+    this.installCRA()
+    // this.spawnCommand('create-react-app', [
+    //   'client',
+    //   '--scripts-version',
+    //   'digitalcrafts-react-scripts'
+    // ])
+  }
 
-    this.npmInstall(['nodemon', 'concurrently', 'dotenv', 'create-react-app'], {
-      'save-dev': true
-    })
+  installCRA () {
+    var isDone = this.async()
 
-    this.npmInstall(
-      ['axios', 'body-parser', 'express', 'helmet', 'mustache-express'],
-      { save: true }
-    )
+    var CRA = () => {
+      this.spawnCommand('create-react-app', [
+        'client',
+        '--scripts-version',
+        'digitalcrafts-react-scripts'
+      ]).on('exit', err => {
+        if (err) {
+          this.log.error('task failed. Error: ' + err)
+        } else {
+          isDone()
+        }
+      })
+    }
 
-    this.spawnCommand('create-react-app', [
-      'client',
-      '--scripts-version',
-      'digitalcrafts-react-scripts'
-    ])
+    CRA()
   }
 
   install () {
