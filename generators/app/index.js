@@ -39,18 +39,6 @@ module.exports = class extends Generator {
       })
     }
 
-    this.fs.copyTpl(
-      this.templatePath('./_gitignore'),
-      this.destinationPath(`${this.appRoot}/.gitignore`)
-    )
-
-    this.fs.copyTpl(
-      this.templatePath('./_env'),
-      this.destinationPath(`${this.appRoot}/.env`)
-    )
-
-    copyer(['package.json', 'index.js', 'README.md'], null, null)
-
     // "axios": "0.18.0",
     // "body-parser": "1.18.3",
     // "express": "4.16.4",
@@ -62,6 +50,37 @@ module.exports = class extends Generator {
     // "concurrently": "4.1.0",
     // "dotenv": "6.2.0",
     // "create-react-app": "2.1.1"
+
+    const pkgJson = {
+      devDependencies: {
+        nodemon: '1.18.7',
+        concurrently: '4.1.0',
+        dotenv: '6.2.0',
+        'create-react-app': '2.1.1'
+      },
+      dependencies: {
+        axios: '0.18.0',
+        'body-parser': '1.18.3',
+        express: '4.16.4',
+        helmet: '3.15.0',
+        'mustache-express': '1.2.8'
+      }
+    }
+
+    // Extend or create package.json file in destination path
+    this.fs.extendJSON(this.destinationPath('package.json'), pkgJson)
+
+    this.fs.copyTpl(
+      this.templatePath('./_gitignore'),
+      this.destinationPath(`${this.appRoot}/.gitignore`)
+    )
+
+    this.fs.copyTpl(
+      this.templatePath('./_env'),
+      this.destinationPath(`${this.appRoot}/.env`)
+    )
+
+    copyer(['index.js', 'README.md'], null, null)
 
     this.npmInstall(['nodemon', 'concurrently', 'dotenv', 'create-react-app'], {
       'save-dev': true
@@ -77,5 +96,8 @@ module.exports = class extends Generator {
       '--scripts-version',
       'digitalcrafts-react-scripts'
     ])
+  }
+  install () {
+    this.npmInstall()
   }
 }
