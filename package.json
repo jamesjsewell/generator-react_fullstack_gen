@@ -1,6 +1,6 @@
 {
   "name": "generator-digitalcrafts",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Heroku ready node and react app generator",
   "repository": {
     "type": "git",

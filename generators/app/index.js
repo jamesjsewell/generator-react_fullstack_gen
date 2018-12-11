@@ -56,14 +56,13 @@ module.exports = class extends Generator {
     this.spawnCommand('create-react-app', [
       'client',
       '--scripts-version',
-      'digitalcrafts-react-scripts',
-      '--internal-testing-template'
+      'digitalcrafts-react-scripts'
     ])
 
-    this.installDependencies({
-      npm: true,
-      bower: false,
-      yarn: false
-    })
+    // this.installDependencies({
+    //   npm: true,
+    //   bower: false,
+    //   yarn: false
+    // })
   }
 }
