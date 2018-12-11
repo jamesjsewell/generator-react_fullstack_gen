@@ -16,6 +16,7 @@ module.exports = class extends Generator {
     }).then(answers => {
       this.appName = answers.name
       this.destinationRoot(this.contextRoot + '/' + this.appName)
+      this.appRoot = this.destinationRoot()
       // this.appRoot = `${this.destinationRoot()}/${this.appName}`
       // this.destinationRoot(answers.name)
       done()
