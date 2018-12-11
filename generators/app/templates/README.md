@@ -1,26 +1,7 @@
 ## Node app reference
 
-```
-npm init
-```
-
-Paste into the terminal at the project's root
-
-```
-touch .gitignore && printf "node_modules/\n.env" >> .gitignore
-touch .env
-touch index.js
-npm install --save-dev dotenv
-npm install --save-dev concurrently
-npm install --save-dev nodemon
-npm install --save express
-npm install --save body-parser
-npm install --save helmet
-npm install --save axios
-npm install --save mustache-express
-```
-
----
+THIS PROJECT GENERATES THE FOLLOWING CODE EXAMPLES,
+SO NONE OF THESE STEPS ARE REQUIRED PER SAY, THOUGH SOME OF THIS DOCUMENTATION IS WRITTEN TO HELP YOU WORK WITH THE PROJECT AND UNDERSTAND SOME OF ITS PIECES
 
 ### In the .gitignore file
 
@@ -78,23 +59,24 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const helmet = require("helmet");
 const path = require("path");
-const mustacheExpress = require("mustache-express"); //example for using server side views
+// const mustacheExpress = require('mustache-express') // example for using server side views
 
-//I mentioned this bit of code already, just make sure that it's in the server once at the top of the file
+// I mentioned this bit of code already, just make sure that it's in the server once at the top of the file
 if (process.env.NODE_ENV == "development") {
   require("dotenv").config();
 }
 
 const app = express();
 
-//this is so that express can parse the incoming `req.body` into json, somewhere at the top of the server file:
+// this is so that express can parse the incoming `req.body` into json, somewhere at the top of the server file:
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // if the app is using server side templating like mustache:
-app.engine("mustache", mustacheExpress());
-app.set("views", "./views");
-app.set("view engine", "mustache");
+// make sure to create a views folder
+// app.engine('mustache', mustacheExpress())
+// app.set('views', './views')
+// app.set('view engine', 'mustache')
 
 // set usefull headers:
 app.all("*", function(req, res, next) {
@@ -116,7 +98,7 @@ app.use(helmet());
 
 // ROUTES GO HERE
 app.get("/api/test", function(req, res, next) {
-  res.send("hello");
+  res.send("the api is working");
 });
 
 // below all of the routes:
@@ -128,7 +110,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
   // if the app is a single page app, like a react app that uses react router for example
   app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"))
   );
 }
 
@@ -148,12 +130,3 @@ app.listen(PORT, function() {
   [![setting config vars in heroku](https://i.postimg.cc/D0Zz0Ysp/321-imported-1443570183-321-imported-1443554644-389-original.png)](https://postimg.cc/wyCzb2wD)
 
 - heroku environment variable docs https://devcenter.heroku.com/articles/config-vars
-
-## further reading
-
-where the api calls are being made from the front end, like `javascript axios.get('/api/test')` it's a good idea to add a baseUrl variable so that it can be changed out easily if ever needed. so like
-
-```javascript
-const baseUrl = "http://localhost:5000";
-axios.get(baseUrl + "/api/test");
-```
