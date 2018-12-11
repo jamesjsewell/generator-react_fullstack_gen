@@ -52,6 +52,8 @@ module.exports = class extends Generator {
     // "create-react-app": "2.1.1"
 
     const pkgJson = {
+      name: this.appName,
+      main: 'index.js',
       devDependencies: {
         nodemon: '1.18.7',
         concurrently: '4.1.0',
@@ -64,6 +66,14 @@ module.exports = class extends Generator {
         express: '4.16.4',
         helmet: '3.15.0',
         'mustache-express': '1.2.8'
+      },
+      scripts: {
+        test: 'echo "Error: no test specified" && exit 1',
+        dev:
+          'concurrently --kill-others-on-fail "npm run server" "npm run client"',
+        server: 'NODE_ENV=development nodemon --ignore client ./index.js',
+        client: 'cd client && npm run start',
+        start: 'node index.js'
       }
     }
 
