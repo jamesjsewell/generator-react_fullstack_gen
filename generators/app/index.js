@@ -101,21 +101,12 @@ module.exports = class extends Generator {
   end () {
     var isDone = this.async()
 
-    var CRA = () => {
-      this.spawnCommand('create-react-app', [
-        'client',
-        '--scripts-version',
-        'digitalcrafts-react-scripts'
-      ]).on('exit', err => {
-        if (err) {
-          this.log.error('task failed. Error: ' + err)
-        } else {
-          isDone()
-        }
-      })
-    }
+    this.spawnCommand('create-react-app', [
+      'client',
+      '--scripts-version',
+      'digitalcrafts-react-scripts'
+    ])
 
-    CRA()
     console.log('about to initialize create react app')
   }
 }
