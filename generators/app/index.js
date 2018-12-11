@@ -99,8 +99,6 @@ module.exports = class extends Generator {
   }
 
   end () {
-    var isDone = this.async()
-
     this.spawnCommand('npx', [
       'create-react-app',
       'client',
