@@ -53,8 +53,7 @@ module.exports = class extends Generator {
 
     copyer(['package.json', 'index.js', 'README.md'], null, null)
 
-    this.spawnCommandSync('npx', [
-      'create-react-app',
+    this.spawnCommandSync('create-react-app', [
       'client',
       '--scripts-version',
       'digitalcrafts-react-scripts',
@@ -67,9 +66,7 @@ module.exports = class extends Generator {
       yarn: false
     })
 
-    //this.spawnCommand('npm', ['install'])
-
-  
+    // this.spawnCommand('npm', ['install'])
 
     // this.spawnCommandSync('cd', ['./client', '&&', 'npm install'])
   }
