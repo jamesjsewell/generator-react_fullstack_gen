@@ -51,16 +51,16 @@ module.exports = class extends Generator {
 
     copyer(['package.json', 'index.js', 'README.md'], null, null)
 
+    this.installDependencies({
+      npm: true,
+      bower: false,
+      yarn: false
+    })
+
     this.spawnCommandSync('create-react-app', [
       'client',
       '--scripts-version',
       'digitalcrafts-react-scripts'
     ])
-
-    // this.installDependencies({
-    //   npm: true,
-    //   bower: false,
-    //   yarn: false
-    // })
   }
 }
