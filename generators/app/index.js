@@ -59,11 +59,10 @@ module.exports = class extends Generator {
       yarn: false
     })
 
-    this.spawnCommand('npx', [
-      ('create-react-app',
+    this.spawnCommand('npx create-react-app', [
       'client',
       '--scripts-version',
-      'jamesjsewell-react-scripts')
+      'jamesjsewell-react-scripts'
     ])
   }
 }
