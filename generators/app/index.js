@@ -66,6 +66,6 @@ module.exports = class extends Generator {
       'digitalcrafts-react-scripts'
     ])
 
-    this.spawnCommandSync('cd ./client && yarn install')
+    this.spawnCommandSync('cd', ['./client', '&&', 'npm install'])
   }
 }
