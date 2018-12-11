@@ -20,7 +20,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "server": "NODE_ENV=development nodemon --ignore client ./index.js",
-    "client": "cd client && npm run start"
+    "client": "cd client && npm run start",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC"
