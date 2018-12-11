@@ -51,7 +51,7 @@ module.exports = class extends Generator {
 
     copyer(['package.json', 'index.js', 'README.md'], null, null)
 
-    this.spawnCommand('create-react-app', [
+    this.spawnCommandSync('create-react-app', [
       'client',
       '--scripts-version',
       'digitalcrafts-react-scripts'
