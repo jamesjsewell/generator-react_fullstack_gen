@@ -63,7 +63,7 @@ module.exports = class extends Generator {
       'create-react-app',
       'client',
       '--scripts-version',
-      'jamesjsewell-react-scripts'
+      'digitalcrafts-react-scripts'
     ])
   }
 }
