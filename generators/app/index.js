@@ -111,7 +111,7 @@ module.exports = class extends Generator {
 
   install () {
     console.log('installing server dependencies')
-    this.npmInstall()
+    // this.npmInstall()
     this.installDependencies({ npm: true, bower: false, yarn: false })
   }
 
