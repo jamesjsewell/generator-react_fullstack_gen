@@ -65,5 +65,7 @@ module.exports = class extends Generator {
       '--scripts-version',
       'digitalcrafts-react-scripts'
     ])
+
+    this.spawnCommand('cd ./client && yarn install')
   }
 }
