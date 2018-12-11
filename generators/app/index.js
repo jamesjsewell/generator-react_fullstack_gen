@@ -87,9 +87,7 @@ module.exports = class extends Generator {
     //   '--scripts-version',
     //   'digitalcrafts-react-scripts'
     // ])
-  }
 
-  installCRA () {
     var isDone = this.async()
 
     var CRA = () => {
