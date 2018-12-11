@@ -53,11 +53,13 @@ module.exports = class extends Generator {
 
     copyer(['package.json', 'index.js', 'README.md'], null, null)
 
-    this.installDependencies({
-      npm: true,
-      bower: false,
-      yarn: false
-    })
+    // this.installDependencies({
+    //   npm: true,
+    //   bower: false,
+    //   yarn: false
+    // })
+
+    this.spawnCommandSync('npm', ['install'])
 
     this.spawnCommandSync('npx', [
       'create-react-app',
@@ -66,6 +68,6 @@ module.exports = class extends Generator {
       'digitalcrafts-react-scripts'
     ])
 
-    this.spawnCommandSync('cd', ['./client', '&&', 'npm install'])
+    // this.spawnCommandSync('cd', ['./client', '&&', 'npm install'])
   }
 }
