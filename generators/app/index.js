@@ -81,7 +81,6 @@ module.exports = class extends Generator {
     )
 
     copyer(['index.js', 'README.md'], null, null)
-    this.installCRA()
 
     // this.spawnCommand('create-react-app', [
     //   'client',
