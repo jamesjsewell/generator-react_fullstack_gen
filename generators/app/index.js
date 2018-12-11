@@ -59,7 +59,9 @@ module.exports = class extends Generator {
       yarn: false
     })
 
-    this.spawnCommandSync('npx create-react-app client', [
+    this.spawnCommandSync('npx', [
+      'create-react-app',
+      'client',
       '--scripts-version',
       'digitalcrafts-react-scripts'
     ])
