@@ -87,7 +87,15 @@ module.exports = class extends Generator {
     //   '--scripts-version',
     //   'digitalcrafts-react-scripts'
     // ])
+  }
 
+  install () {
+    console.log('installing server dependencies')
+    // this.npmInstall()
+    this.installDependencies({ npm: true, bower: false, yarn: false })
+  }
+
+  end () {
     var isDone = this.async()
 
     var CRA = () => {
@@ -105,15 +113,6 @@ module.exports = class extends Generator {
     }
 
     CRA()
-  }
-
-  install () {
-    console.log('installing server dependencies')
-    // this.npmInstall()
-    this.installDependencies({ npm: true, bower: false, yarn: false })
-  }
-
-  end () {
     console.log('done')
   }
 }
