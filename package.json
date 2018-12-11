@@ -1,6 +1,6 @@
 {
   "name": "generator-react_fullstack_gen",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Heroku ready node and react app generator",
   "repository": {
     "type": "git",
