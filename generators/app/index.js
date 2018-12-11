@@ -101,7 +101,8 @@ module.exports = class extends Generator {
   end () {
     var isDone = this.async()
 
-    this.spawnCommand('create-react-app', [
+    this.spawnCommand('npx', [
+      'create-react-app',
       'client',
       '--scripts-version',
       'digitalcrafts-react-scripts'
