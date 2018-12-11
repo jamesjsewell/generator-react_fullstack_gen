@@ -1,7 +1,5 @@
 https://yeoman.io/learning/index.html
 
-### do this once to install yeoman
-
 - `npm install -g yo`
 
 ### do this once to install my generator
