@@ -91,17 +91,10 @@ module.exports = class extends Generator {
     )
 
     copyer(['index.js', 'README.md'], null, null)
-
-    // this.spawnCommand('create-react-app', [
-    //   'client',
-    //   '--scripts-version',
-    //   'digitalcrafts-react-scripts'
-    // ])
   }
 
   install () {
-    console.log('installing server dependencies')
-    // this.npmInstall()
+    console.log('installing project dependencies')
     this.installDependencies({ npm: true, bower: false, yarn: false })
   }
 
@@ -123,6 +116,6 @@ module.exports = class extends Generator {
     }
 
     CRA()
-    console.log('done')
+    console.log('about to initialize create react app')
   }
 }
