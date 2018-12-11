@@ -97,10 +97,13 @@ module.exports = class extends Generator {
       'digitalcrafts-react-scripts'
     ])
   }
-  end () {
-    this.install()
-  }
+
   install () {
+    console.log('installing server dependencies')
     this.npmInstall()
+  }
+
+  end () {
+    console.log('done')
   }
 }
