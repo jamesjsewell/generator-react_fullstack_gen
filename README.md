@@ -2,7 +2,7 @@ This generator was created with https://yeoman.io/learning/index.html
 
 - `npm install -g yo`
 
-### do this once to install my generator
+### to install my generator
 
 - `npm i -g generator-digitalcrafts`
 
