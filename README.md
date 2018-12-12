@@ -1,4 +1,4 @@
-https://yeoman.io/learning/index.html
+This generator was created with https://yeoman.io/learning/index.html
 
 - `npm install -g yo`
 
