@@ -60,5 +60,10 @@ if (process.env.NODE_ENV === 'production') {
 // at the bottom of the server file, set the port like this, so that heroku can set the port when the server is being hosted there
 const PORT = process.env.PORT || 5000
 app.listen(PORT, function () {
-  console.log('\n\n===== listening for requests on port ' + PORT + ' WAIT FOR CREATE-REACT-APP to start =====\n\n ')
+  console.log(
+    '\n\n===== listening for requests on port ' + PORT + ' =====\n\n '
+  )
+  console.log(
+    '\n\n ...WAITING FOR REACT DEV SERVER TO START, HOLD ON...  \n\n '
+  )
 })
